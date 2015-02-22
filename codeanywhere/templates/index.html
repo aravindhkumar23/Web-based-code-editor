@@ -1,0 +1,39 @@
+<!-- {{firstname}}
+{{lastname}} -->
+<html>
+<head>
+	<style type="text/css">
+	body
+	{
+		/*background-image:url(/static/images/body_bg.jpg);*/
+		background-repeat: no-repeat;
+	}
+	.mg1
+	{
+		margin-top: 8%;
+		text-align: center;
+	}
+	.box
+	{		
+		margin-top: 4%;
+		margin-left: 10%;
+		margin-right: 20%;
+		
+	}
+	</style>
+	<title>Home Page</title>
+</head>
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+<link href="/static/css/bootstrap.css" rel="stylesheet">
+	
+<body>
+	{% include "navbar.html" %}
+	<div class="mg1"><h1>Welcome to CodeHere</h1></div>
+		<div class="box">
+		<p>We all want everything here, now, fast and with no hassle (no need to install anything). This is what Codehere does, it lets you code from anywhere, without the need to bring anything along with you. Just log on to CodeHere with any computer and all your servers (FTP, SFTP and Dropbox), files, everything is waiting for you</p>
+<h5>It's the ultimate tool for web workers on the move. Best of all, it is light weight and fast, so you can concentrate on working, not on the fact that you working from a browser.</h5>
+<p>Codeanywhere is compatible on all major browsers so you can work from the one you like</p>
+<h5>In short Codeanywhere will solve all your coding needs on the go, anytime, anywhere and on any platform.</h5>
+</div>
+</body>
+</html>

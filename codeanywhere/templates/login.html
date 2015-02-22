@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/flat-ui.css" rel="stylesheet">
+    <style type="text/css">
+    		.cent-text
+        {
+    			margin-top: 8%;
+    			text-align: center;
+    			font-family: fantasy;
+    		}
+    	</style>
+      <title>{{message}}</title>
+	</head>
+	<body>
+    {% include "navbar.html" %}
+
+		<div class="cent-text">{{message}}</div>
+		<div class="container login">
+      	  <div class="login-screen">
+      	    <div class="login-icon">
+       	     <img src="/static/images/login.png" style="background-color:white;" alt="geni" />
+       	     <h4>Welcome to <small>CodeHere</small></h4>
+       		</div>
+<form name="test" action="/signin/" id="login_frm" method = "post">
+          <div class="login-form">
+            <div class="form-group">
+              <input type="text" id="username" required name="uname" class="form-control login-field" value="" placeholder="Enter your name" />
+              <label class="login-field-icon fui-user" for="login-name"></label>              
+            </div>
+
+            <div class="form-group">
+              <input type="password" required class="form-control login-field" value="" placeholder="Password" name="pass" id="password" />
+              <label class="login-field-icon fui-lock" for="login-pass"></label>              
+            </div>
+            <input type="hidden" value="adminlogin" name="check" id="check">
+            <input class="btn btn-primary btn-lg btn-block" type="submit" id="login_form" value="Log in"/>
+</div>
+</form>            
+            <a class="login-link" href="#">Lost your password?</a>
+          </div> 
+          </div>
+	</body>
+</html>

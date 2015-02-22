@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>signup here</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+  
+</head>
+<body>	
+     {% include "navbar.html" %}
+    <div class="form-horizontal" style="margin-top: 8%;">
+      <!-- <form action="/signup/" method="post" role="form"> -->
+    <input type="text" id="username" name="uname" value="" required placeholder="Enter your name" />
+      <input type="text" id="pass" name="pass" value="" required placeholder="*****" />
+      <input type="text" id="email" name="email" required value="" placeholder="email" />
+      <input type="submit" id=" submit" value="submit">
+      <!-- </form> -->
+    </div>
+  </div>
+</body>
+<script src="/static/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$('#submit').click(function(){alert("clicked");});
+</script>
+</html>

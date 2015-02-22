@@ -1,0 +1,97 @@
+<html>
+<link id="bs-css" href="/static/css/bootstrap-cerulean.min.css" rel="stylesheet">
+<link href="/static/css/charisma-app.css" rel="stylesheet">
+<style type="text/css">
+#editor{
+    height: 90%;
+    margin-top: 6%;
+    overflow:scroll; 
+}
+
+</style>
+ 
+<body>  
+{% include "navbar.html" %}
+<div class="ch-container">
+    <div class="row">               
+        <div id="content" class="col-lg-12 col-sm-12">                    
+<!-- <div>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="#">Blank</a>
+        </li>
+    </ul>
+</div> -->
+<div class="row">
+    <br><br><br><br><br><br><br><br><br>
+    {{message}}
+    {{dirName}}
+    {{fname}}
+    <div class="box col-md-2">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2>heading</h2>                  
+            </div>
+            <div class="box-content">
+               <a href="#" class="btn-setting"><i class="glyphicon glyphicon-cog"></i>open </a>
+               
+            </div>
+        </div>
+    </div>
+    <div class="box col-md-10">    	    	
+            <pre id="editor">
+               <!--  iojics
+
+                bcsjc -->
+            </pre>    	
+    </div>
+</div><!--/row-->
+</div><!--/#content.col-md-0-->
+</div><!--/fluid-row-->
+
+<!-- model strt -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h3>Settings</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Here settings can be configured...</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+                    <a href="#" class="btn btn-primary" data-dismiss="modal">Save changes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- model end -->
+   
+</div><!--/.fluid-container-->
+</body>
+<script type="text/javascript">
+$(document).ready(function () {
+    // $("#editor").load("/static/css/style.css");
+    $.get('/static/css/bootstrap.css',function(data){$("#editor").html(data);},'text');
+	$('#myModal').modal('hide');
+	$('.btn-setting').click(function (e) {
+        e.preventDefault();
+        $('#myModal').modal('show');
+    });
+	});
+</script>
+<script src="/static/js/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>    
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    // editor.getSession().setMode("ace/mode/javascript");
+    
+</script>
+</html>
