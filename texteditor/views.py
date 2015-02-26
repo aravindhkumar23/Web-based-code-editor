@@ -31,6 +31,7 @@ def signin(request):
 		return HttpResponseRedirect("/login")
 
 def dashboard(request):
+	print "ececuting dashboard"
 	import os
 	rootDir = '.'
 	for dirName, subdirList, fileList in os.walk(rootDir, topdown=False):
@@ -38,6 +39,7 @@ def dashboard(request):
 		for fname in fileList:
 			print('\t%s' % fname)
 	message = "Success Fully loged in"
+	print "ececuting dashboard stoped"
 	return render_to_response("dashboard.html",locals())
 def sign_nav(request):
 	return render_to_response("signup.html",locals())
