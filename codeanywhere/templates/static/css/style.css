@@ -1,1 +1,12 @@
-body{background-color: rgba(142, 139, 139, 0.12);}
+body{background-color: rgba(142, 139, 139, 0.12);}.driveFolders{width:20px;}.editor{    height: 80%;   
+}
+.folderbox
+{
+    overflow-x: scroll;
+}
+.files
+{
+	color: red;
+}
+#plus{margin-top: 10px;margin-left: 10px;}
+#save{margin-top: 10px;margin-left: 10px;}

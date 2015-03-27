@@ -1,15 +1,11 @@
 <html>
 <link id="bs-css" href="/static/css/bootstrap-cerulean.min.css" rel="stylesheet">
 <link href="/static/css/charisma-app.css" rel="stylesheet">
-<style type="text/css">
-#editor{
-    height: 90%;
-    /*margin-top: 6%;*/
-    overflow:scroll; 
-}
+<link href="/static/css/style.css" rel="stylesheet">
+<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.js"></script>
 
-</style>
- 
+
 <body>  
 {% include "navbar.html" %}
 <div class="ch-container">
@@ -26,25 +22,44 @@
     </ul>
 </div> -->
 <div class="row">
-    <br><br><br><br>
-    {{message}}
-    {{dirName}}
-    {{fname}}
-    <div class="box col-md-2">
+    <br><br><br>
+    <div class="box col-md-3">
         <div class="box-inner">
             <div class="box-header well" data-original-title="">
-                <h2>heading</h2>                  
+                <h2>Folders</h2>                  
             </div>
-            <div class="box-content">
-               <a href="#" class="btn-setting"><i class="glyphicon glyphicon-cog"></i>open </a>
-               
-            </div>
+            <div class="folderbox">
+                <ul >
+                {% for i in f%}
+                    <b  id="foldersData" data-folder = "{{i}}" data-item = "{{i}}"class = "driveFolders">
+                        <span id="gly" class="glyphicon glyphicon-plus-sign"></span>
+                        {{i}}
+                        <ul id='{{i}}'>
+                        </ul>
+                    </b> 
+                    <br>
+                {% endfor %}    
+                </ul>              
+            </div>  
+           
         </div>
     </div>
-    <div class="box col-md-10">    	    	
-            <pre id="editor">
-              
-            </pre>    	
+<div class="box col-md-9">   
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a data-toggle="tab" id="codeanywhere/templates/static/js/listDetails.js" href="#section0">
+                    Section 0
+                    <!-- <i class="glyphicon glyphicon-remove"></i> -->
+                </a>
+            </li>                
+            <li id="plus"><i class="glyphicon glyphicon-plus"></i></li>
+            <li id="save"><i class="glyphicon glyphicon-save"></i></li>
+        </ul>
+        <div class="tab-content">
+            <div id="section0" class="tab-pane fade in active">
+                <pre id="editor0" class="editor"></pre>     
+            </div>                   
+        </div>	                
     </div>
 </div><!--/row-->
 </div><!--/#content.col-md-0-->
@@ -58,14 +73,24 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h3>Settings</h3>
+                    <h3>Create New Files Here</h3>
                 </div>
                 <div class="modal-body">
-                    <p>Here settings can be configured...</p>
+                    <div>
+    <ul class="breadcrumb">
+        <li><a href="#">codeanywhere</a></li>
+        <li><a href="#">templates</a></li>
+        <li><a href="#">css</a></li>
+    </ul>
+</div>
+                file name: <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope red"></i></span>
+                        <input type="text" class="form-control" placeholder="filename.extension" id="filenameExtension">
+                    </div>                                    
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
-                    <a href="#" class="btn btn-primary" data-dismiss="modal">Save changes</a>
+                    <a href="" id="create" data-dismiss="modal" class="btn btn-primary">Create Now</a>
                 </div>
             </div>
         </div>
@@ -75,13 +100,14 @@
 </div><!--/.fluid-container-->
 </body>
 <script type="text/javascript">
-$(document).ready(function () {     
-    
-    $.get('/static/css/style.css',function(data){
-        editorId=document.getElementById('editor');
-    editorId.innerText=data
-         var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/twilight");
+$(document).ready(function () {       
+    $.get('/static/js/listDetails.js',function(data){
+        $('a[href="#section0"]').text("listDetails.js"); 
+        editorId=document.getElementById('editor0');
+        editorId.innerText=data
+        var editor0 = ace.edit("editor0");
+        // editor.setTheme("ace/theme/javascript");
+        editor0.getSession().setMode("ace/mode/javascript");
     
     }
         ,'text'
@@ -90,10 +116,12 @@ $(document).ready(function () {
 	$('.btn-setting').click(function (e) {
         e.preventDefault();
         $('#myModal').modal('show');
-    });
+    });    
 	});
 </script>
-<script src="/static/js/ace.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/static/js/listDetails.js"></script>
+<script src="/static/editor-src-min/ace.js" type="text/javascript" charset="utf-8"></script>
+
 <script>    
     // var editor = ace.edit("editor");
     // editor.setTheme("ace/theme/twilight");
